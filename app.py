@@ -13,10 +13,18 @@ st.set_page_config(
 # 2. Styling
 st.markdown("""
 <style>
-    .st-key-email_btn button, .st-key-video_btn button, .st-key-blog_btn button, .st-key-linkedin_btn button {
+    .st-key-email_btn button, .st-key-video_btn button, .st-key-blog_btn button, .st-key-linkedin_btn button, .customer_segmentation_btn{
         width: 100%;
         border-radius: 8px;
         height: 6em;
+    }
+    [data-testid="stLinkButton"] a {
+        width: 100%;
+        border-radius: 8px;
+        height: 6em;
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
     .output-box {
         border: 1px solid #ddd;
@@ -50,16 +58,38 @@ def page_home():
     
     _, col1, col2, _ = st.columns([1, 2, 2, 1])
     with col1:
-        if st.button("Email Writer", use_container_width=True, key="email_btn"):
+        if st.button("Email Generator", use_container_width=True, key="email_btn"):
             navigate_to("Email")
-        if st.button("Video Script", use_container_width=True, key="video_btn"):
+        if st.button("Video Script Generator", use_container_width=True, key="video_btn"):
             navigate_to("Video")
+        st.link_button(
+            "FAQ Chatbot",
+            url="https://crave-chatbot.vercel.app/",
+            use_container_width=True
+        )
+        st.link_button(
+            "Customer Segmentation App ", 
+            url="https://customer-segmentation-crave.streamlit.app/", 
+            use_container_width=True
+            )
+
             
     with col2:
-        if st.button("Blog Creator", use_container_width=True, key="blog_btn"):
+        if st.button("Blog Generator", use_container_width=True, key="blog_btn"):
             navigate_to("Blog")
-        if st.button("LinkedIn Post", use_container_width=True, key="linkedin_btn"):
+        if st.button("LinkedIn Post Generator", use_container_width=True, key="linkedin_btn"):
             navigate_to("LinkedIn")
+        st.link_button(
+            "RFP Response Generator",
+            url="https://rfp-demo-1-u9ft5cqd2nuvfc9mrckaig.streamlit.app/",
+            use_container_width=True
+            )
+        st.link_button(
+            "Sentiment Analysis App",
+            url="https://int_ai_sentimentanalysis-proud-parrot-ip.cfapps.eu10-004.hana.ondemand.com/",
+            use_container_width=True
+            )
+        
 
 # 5. Router
 def main():
