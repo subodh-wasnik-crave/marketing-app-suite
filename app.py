@@ -81,7 +81,11 @@ def page_home():
             url="https://crave-chatbot.vercel.app/",
             use_container_width=True
         )
-
+        st.link_button(
+            "Data Query Bot",
+            url="https://querybot-three.vercel.app/",
+            use_container_width=True
+        )
 
             
     with col2:
